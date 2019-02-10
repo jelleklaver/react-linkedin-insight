@@ -1,34 +1,36 @@
-"env": {
-  "development": {
-    "presets": [
-      [
+{
+  "env": {
+    "development": {
+      "presets": [
+        [
+          "@babel/env",
+          {
+            "modules": false
+          }
+        ],
+        "@babel/react"
+      ]
+    },
+    "test": {
+      "presets": [
         "@babel/env",
-        {
-          "modules": false
-        }
+        "@babel/react"
+      ]
+    },
+    "production": {
+      "presets": [
+        [
+          "@babel/env",
+          {
+            "modules": false
+          }
+        ],
+        "@babel/react"
       ],
-      "@babel/react"
-    ]
-  },
-  "test": {
-    "presets": [
-      "@babel/env",
-      "@babel/react"
-    ]
-  },
-  "production": {
-    "presets": [
-      [
-        "@babel/env",
-        {
-          "modules": false
-        }
-      ],
-      "@babel/react"
-    ],
-    "plugins": [
-      "@babel/plugin-transform-react-constant-elements",
-      "@babel/plugin-transform-react-inline-elements"
-    ]
+      "plugins": [
+        "@babel/plugin-transform-react-constant-elements",
+        "@babel/plugin-transform-react-inline-elements"
+      ]
+    }
   }
 }

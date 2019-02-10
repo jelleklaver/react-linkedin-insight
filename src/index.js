@@ -1,3 +1,5 @@
+import { isBrowser } from 'browser-or-node';
+
 /**
  * React LinkedIn Insight Tag module
  *
@@ -8,6 +10,7 @@
 class LinkedInTag {
   constructor() {
     this.initialized = false;
+    this.disabled = false;
   }
 
   /**
@@ -33,7 +36,11 @@ class LinkedInTag {
    *
    * @return null
    */
-  init(partnerId) {
+  init(partnerId, disabled = !isBrowser) {
+    this.disabled = disabled;
+    if (this.disabled) {
+      return;
+    }
     window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
     window._linkedin_data_partner_ids.push(partnerId);
 
@@ -60,7 +67,7 @@ class LinkedInTag {
    * @return null
    */
   track(conversionId, partnerId) {
-    if (!this.verifyInit()) {
+    if (!this.verifyInit() || this.disabled) {
       return;
     }
 
