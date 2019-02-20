@@ -8,7 +8,8 @@ module.exports = {
     path: path.join(__dirname, "dist"),
     filename: "linkedin-insight.js",
     libraryTarget: "umd",
-    library: "LinkedInTag"
+    library: "LinkedInTag",
+    globalObject: "typeof self !== 'undefined' ? self : this"
   },
   module: {
     rules: [

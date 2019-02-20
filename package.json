@@ -1,6 +1,6 @@
 {
   "name": "react-linkedin-insight",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Easily add LinkedIn Insight Tag to React",
   "main": "dist/linkedin-insight.js",
   "scripts": {
@@ -46,5 +46,7 @@
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "browser-or-node": "^1.1.0"
+  }
 }
