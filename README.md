@@ -1,14 +1,19 @@
 # react-linkedin-insight
+[![](https://badgen.net/github/license/jelleklaver/react-linkedin-insight)](https://github.com/jelleklaver/react-linkedin-insight/blob/master/LICENSE.md)
+[![](https://badgen.net/github/open-issues/jelleklaver/react-linkedin-insight)](https://github.com/jelleklaver/react-linkedin-insight/issues)
+[![](https://badgen.net/bundlephobia/minzip/react-linkedin-insight)](https://bundlephobia.com/result?p=react-linkedin-insight)
+[![](https://badgen.net/npm/v/react-linkedin-insight?icon=npm)](https://npmjs.com/package/react-linkedin-insight)
+[![](https://badgen.net/david/dep/jelleklaver/react-linkedin-insight)](https://npmjs.com/package/react-linkedin-insight)
+[![](https://badgen.net/npm/dt/react-linkedin-insight?icon=npm)](https://npmjs.com/package/react-linkedin-insight)
+
 Easily add LinkedIn Insight Tag to React.  
 It is heavily inspired by [react-facebook-pixel](https://github.com/zsajjad/react-facebook-pixel) from [@zsajjad](https://github.com/zsajjad).
 
 ## Install
 This repo is available via npm ([react-linkedin-insight](https://www.npmjs.com/package/react-linkedin-insight))
-
 ```bash
-npm install react-linkedin-insight --save
+yarn add react-linkedin-insight
 ```
-
 ## Usage
 Import, initialize and play. Too bad the LinkedIn Insight Tag does not have the abilities which the Facebook Pixel or Google Analytics have, but we can measure a page load and conversions.
 
