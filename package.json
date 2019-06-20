@@ -1,8 +1,11 @@
 {
   "name": "react-linkedin-insight",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Easily add LinkedIn Insight Tag to React",
-  "main": "dist/linkedin-insight.js",
+  "main": "./dist/linkedin-insight.js",
+  "files": [
+    "/dist"
+  ],
   "scripts": {
     "bundle": "npm run lint && export NODE_ENV=production && webpack -p --config webpack.config.dist.js",
     "lint": "eslint src/",
@@ -18,6 +21,7 @@
     "react-component",
     "linkedin",
     "linkedin insight",
+    "insight",
     "tag",
     "pixel"
   ],
