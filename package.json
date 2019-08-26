@@ -1,6 +1,6 @@
 {
   "name": "react-linkedin-insight",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Easily add LinkedIn Insight Tag to React",
   "main": "./dist/linkedin-insight.js",
   "files": [
@@ -32,25 +32,25 @@
   },
   "homepage": "https://github.com/jelleklaver/react-linkedin-insight#readme",
   "devDependencies": {
-    "@babel/core": "^7.1.2",
-    "@babel/plugin-transform-react-constant-elements": "^7.0.0",
-    "@babel/plugin-transform-react-inline-elements": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-react-constant-elements": "^7.5.0",
+    "@babel/plugin-transform-react-inline-elements": "^7.2.0",
+    "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
-    "autoprefixer": "^9.1.5",
-    "babel-eslint": "^10.0.1",
-    "babel-loader": "^8.0.4",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
+    "autoprefixer": "^9.6.1",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.2.2",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
   },
   "dependencies": {
-    "browser-or-node": "^1.1.0"
+    "browser-or-node": "^1.2.1"
   }
 }
