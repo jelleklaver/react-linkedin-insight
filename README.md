@@ -34,4 +34,4 @@ Conversions can only be tracked if they are created within the LinkedIn Campaign
 Currently there is no option in automatically tracking navigation with client-side routing. Input would be very helpful and appreciated. It could be opted to create a conversion in LinkedIn which is called 'virtualPageView' or so, but I don't think this is good practice. We should create a way in which LinkedIn registers a navigation change as a page load.
 
 ## License (ISC)
-[ISC](https://github.com/jelleklaver/react-linkedin-insight/blob/master/LICENSE.md) | Copyright 2018 Jelle Klaver [https://jelleklaver.com](https://jelleklaver.com)
+[ISC](https://github.com/jelleklaver/react-linkedin-insight/blob/master/LICENSE.md)

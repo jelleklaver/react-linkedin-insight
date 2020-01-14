@@ -1,7 +1,7 @@
 {
-  "name": "react-linkedin-insight",
-  "version": "0.0.5",
-  "description": "Easily add LinkedIn Insight Tag to React",
+  "name": "linkedin-insight-tag",
+  "version": "0.0.6",
+  "description": "Easily add LinkedIn Insight Tag",
   "main": "./dist/linkedin-insight.js",
   "files": [
     "/dist"
@@ -13,42 +13,34 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jelleklaver/react-linkedin-insight.git"
+    "url": "git+https://github.com/jelleklaver/linkedin-insight.git"
   },
   "keywords": [
-    "react",
-    "reactjs",
-    "react-component",
     "linkedin",
     "linkedin insight",
     "insight",
     "tag",
     "pixel"
   ],
-  "author": "Jelle Klaver <info@jelleklaver.com> (jelleklaver.com)",
+  "author": "Jelle Klaver",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jelleklaver/react-linkedin-insight/issues"
+    "url": "https://github.com/jelleklaver/linkedin-insight/issues"
   },
-  "homepage": "https://github.com/jelleklaver/react-linkedin-insight#readme",
+  "homepage": "https://github.com/jelleklaver/linkedin-insight#readme",
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-transform-react-constant-elements": "^7.5.0",
-    "@babel/plugin-transform-react-inline-elements": "^7.2.0",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "autoprefixer": "^9.6.1",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "autoprefixer": "^9.7.3",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
-    "eslint": "^6.2.2",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7"
+    "eslint-plugin-react": "^7.17.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
   },
   "dependencies": {
     "browser-or-node": "^1.2.1"

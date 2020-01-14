@@ -1,10 +1,10 @@
 import { isBrowser } from 'browser-or-node';
 
 /**
- * React LinkedIn Insight Tag module
+ * LinkedIn Insight Tag module
  *
- * @package react-linkedin-insight
- * @author Jelle Klaver <info@jelleklaver.com>
+ * @package linkedin-insight
+ * @author Jelle Klaver 
  */
 
 class LinkedInTag {
