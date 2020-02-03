@@ -11,6 +11,16 @@ class LinkedInTag {
   constructor() {
     this.initialized = false;
     this.disabled = false;
+    this.partnerId = '';
+  }
+
+  /**
+   * Warn
+   * @param  {...any} args
+   */
+  warn(...args) {
+    // eslint-disable-next-line no-console
+    console.info(...['[react-linkedin-insight]'].concat(args));
   }
 
   /**
@@ -20,7 +30,9 @@ class LinkedInTag {
    */
   verifyInit() {
     if (!this.initialized) {
-      console.warn('LinkedIn Insight Tag not initialized before using call LinkedInTag.init with required params');
+      this.warn(
+        'LinkedIn Insight Tag not initialized. Before using, call LinkedInTag.init with required params',
+      );
     }
 
     return this.initialized;
@@ -32,15 +44,17 @@ class LinkedInTag {
    * It is stated like '_linkedin_partner_id = "123456";' on the second row
    * of the code they provide. The "123456" is your partnerId.
    *
-   * @param {int} partnerId - The partner id received from LinkedIn.
+   * @param {string} partnerId - The partner id received from LinkedIn.
    *
-   * @return null
+   * @return void
    */
   init(partnerId, disabled = !isBrowser) {
     this.disabled = disabled;
-    if (this.disabled) {
-      return;
-    }
+    this.partnerId = String(partnerId);
+
+    if (disabled) return;
+    if (!this.partnerId) return this.warn('Partner id is empty.');
+
     window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
     window._linkedin_data_partner_ids.push(partnerId);
 
@@ -61,18 +75,23 @@ class LinkedInTag {
    * an event-specific pixel. The src url they provide holds a query variable
    * 'conversionId=123456'. This 123456 is your conversion id.
    *
-   * @params {int} conversionId - The conversion ID received from LinkedIn
-   * @params {int} partnerId = null - By default the partner ID is fetched from the initialization.
+   * @params {string} conversionId - The conversion ID received from LinkedIn
+   * @params {string} partnerId = null - By default the partner ID is fetched from the initialization.
    *
-   * @return null
+   * @return void
    */
-  track(conversionId, partnerId) {
+  track(conversionId) {
     if (!this.verifyInit() || this.disabled) {
       return;
     }
 
-    partnerId = partnerId || window._linkedin_data_partner_ids[0];
-    const url = `https://dc.ads.linkedin.com/collect/?pid=${partnerId}&conversionId=${conversionId}&fmt=gif`;
+    if (!this.partnerId || !window._linkedin_data_partner_ids[0]) {
+      return this.warn('Partner id is empty.');
+    }
+    this.warn('partnerId', this.partnerId, '_linkedin_data_partner_ids', window._linkedin_data_partner_ids[0]);
+    this.partnerId = this.partnerId || window._linkedin_data_partner_ids[0];
+
+    const url = `https://dc.ads.linkedin.com/collect/?pid=${this.partnerId}&conversionId=${conversionId}&fmt=gif`;
 
     // It creates an element without actually posting it to the page. The call is already made to the linkedin servers and will be registered
     const element = document.createElement('img');
