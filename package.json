@@ -31,6 +31,7 @@
     "lint": "eslint src/",
     "clean": "rm -rf node_modules"
   },
+  "types": "./@types/index.d.ts",
   "dependencies": {
     "browser-or-node": "^1.2.1"
   },
