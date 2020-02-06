@@ -12,6 +12,7 @@ class LinkedInTag {
     this.initialized = false;
     this.disabled = false;
     this.partnerId = '';
+    this.subDomain = 'dc';
   }
 
   /**
@@ -48,12 +49,13 @@ class LinkedInTag {
    *
    * @return void
    */
-  init(partnerId, disabled = !isBrowser) {
+  init(partnerId, subDomain, disabled = !isBrowser) {
     this.disabled = disabled;
     this.partnerId = String(partnerId);
 
     if (disabled) return;
     if (!this.partnerId) return this.warn('Partner id is empty.');
+    if (!!subDomain) this.subDomain = subDomain;
 
     window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
     window._linkedin_data_partner_ids.push(partnerId);
@@ -88,10 +90,9 @@ class LinkedInTag {
     if (!this.partnerId || !window._linkedin_data_partner_ids[0]) {
       return this.warn('Partner id is empty.');
     }
-    this.warn('partnerId', this.partnerId, '_linkedin_data_partner_ids', window._linkedin_data_partner_ids[0]);
     this.partnerId = this.partnerId || window._linkedin_data_partner_ids[0];
 
-    const url = `https://dc.ads.linkedin.com/collect/?pid=${this.partnerId}&conversionId=${conversionId}&fmt=gif`;
+    const url = `https://${this.subDomain}.ads.linkedin.com/collect/?pid=${this.partnerId}&conversionId=${conversionId}&fmt=gif`;
 
     // It creates an element without actually posting it to the page. The call is already made to the linkedin servers and will be registered
     const element = document.createElement('img');
