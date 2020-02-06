@@ -46,6 +46,7 @@ class LinkedInTag {
    * of the code they provide. The "123456" is your partnerId.
    *
    * @param {string} partnerId - The partner id received from LinkedIn.
+   * @param {string} subDomain - The the subDomain to use. Default 'dc'
    *
    * @return void
    */
