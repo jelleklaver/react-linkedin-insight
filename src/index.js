@@ -56,7 +56,7 @@ class LinkedInTag {
 
     if (disabled) return;
     if (!this.partnerId) return this.warn('Partner id is empty.');
-    if (!!subDomain) this.subDomain = subDomain;
+    if (subDomain) this.subDomain = subDomain;
 
     window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
     window._linkedin_data_partner_ids.push(partnerId);
