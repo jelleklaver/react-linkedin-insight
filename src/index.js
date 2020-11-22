@@ -4,7 +4,7 @@ import { isBrowser } from 'browser-or-node';
  * LinkedIn Insight Tag module
  *
  * @package linkedin-insight
- * @author Jelle Klaver 
+ * @author Jelle Klaver
  */
 
 class LinkedInTag {

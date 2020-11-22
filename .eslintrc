@@ -6,12 +6,8 @@
   },
   "extends": [
     "eslint:recommended",
-    "airbnb"
   ],
   "parser": "babel-eslint",
-  "plugins": [
-    "react"
-  ],
   "rules": {
     "no-console": 0,
     "max-len": 0,
@@ -23,11 +19,8 @@
     "import/no-extraneous-dependencies": 0,
     "no-plusplus": 0,
     "no-useless-escape": 0,
-    "react/jsx-filename-extension": 0,
-    "react/forbid-prop-types": 0,
     "no-unneeded-ternary": 0,
     "class-methods-use-this": 0,
-    "react/require-default-props": 0,
     "no-param-reassign": 0,
     "comma-dangle": 0
   }
