@@ -21,7 +21,7 @@ class LinkedInTag {
    */
   warn(...args) {
     // eslint-disable-next-line no-console
-    console.info(...['[react-linkedin-insight]'].concat(args));
+    console.info(...['[linkedin-insight-tag]'].concat(args));
   }
 
   /**
