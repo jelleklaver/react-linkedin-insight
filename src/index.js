@@ -78,21 +78,24 @@ class LinkedInTag {
    * an event-specific pixel. The src url they provide holds a query variable
    * 'conversionId=123456'. This 123456 is your conversion id.
    *
-   * @param {string} conversionId - The conversion ID received from LinkedIn
+   * @param {string?} conversionId - The conversion ID received from LinkedIn
    * @param {string?} partnerId - Override the partnerId for this specific tracking operation
    * @param {string?} subDomain - Override the subDomain for this specific tracking operation
    *
    * @return void
    */
   track(conversionId, partnerId, subDomain) {
-    if (!this.verifyInit() || this.disabled) return;
+    if (!this.verifyInit() || this.disabled) return this.warn('Called `track` before calling `init`.');
 
     partnerId = partnerId || this.partnerId || window._linkedin_data_partner_ids[0];
     if (!partnerId) return this.warn('Partner id is empty.');
 
     subDomain = subDomain || this.subDomain;
 
-    const url = `https://${subDomain}.ads.linkedin.com/collect/?pid=${partnerId}&conversionId=${conversionId}&fmt=gif`;
+    let url = `https://${subDomain}.ads.linkedin.com/collect/?pid=${partnerId}&fmt=gif`;
+    if(conversionId) {
+      url = `${url}&conversionId=${conversionId}`;
+    }
 
     // It creates an element without actually posting it to the page. The call is already made to the linkedin servers and will be registered
     const element = document.createElement('img');
