@@ -26,7 +26,8 @@
   "scripts": {
     "bundle": "npm run lint && export NODE_ENV=production && webpack --config webpack.config.dist.js",
     "lint": "eslint src/",
-    "clean": "rm -rf node_modules"
+    "clean": "rm -rf node_modules",
+    "test": "jest"
   },
   "types": "./@types/index.d.ts",
   "dependencies": {
@@ -39,6 +40,7 @@
     "babel-loader": "^8.2.1",
     "eslint": "^7.14.0",
     "eslint-plugin-import": "^2.20.0",
+    "jest": "^26.6.3",
     "webpack": "^5.6.0",
     "webpack-cli": "^4.2.0"
   }

@@ -7,10 +7,10 @@ import { isBrowser } from 'browser-or-node';
  * @author Jelle Klaver
  */
 
-class LinkedInTag {
+export class LinkedInTag {
   constructor() {
     this.initialized = false;
-    this.disabled = false;
+    this.disabled = !isBrowser;
     this.partnerId = '';
     this.subDomain = 'dc';
   }
@@ -45,18 +45,19 @@ class LinkedInTag {
    * It is stated like '_linkedin_partner_id = "123456";' on the second row
    * of the code they provide. The "123456" is your partnerId.
    *
-   * @param {string} partnerId - The partner id received from LinkedIn.
-   * @param {string} subDomain - The the subDomain to use. Default 'dc'
+   * @param {string} partnerId - Partner id received from LinkedIn.
+   * @param {string} [subDomain='dc'] - Sub domain to use. Default 'dc'
+   * @param {boolean} [disabled=!isBrowser] - Disable all tracking, e.g. for SSR or when the user disallows tracking
    *
    * @return void
    */
-  init(partnerId, subDomain, disabled = !isBrowser) {
-    this.disabled = disabled;
-    this.partnerId = String(partnerId);
+  init(partnerId, subDomain, disabled) {
+    this.partnerId = partnerId;
+    this.subDomain = subDomain || this.subDomain;
+    if(disabled != null) this.disabled = disabled;
 
-    if (disabled) return;
-    if (!this.partnerId) this.warn('Partner id is empty.');
-    if (subDomain) this.subDomain = subDomain;
+    if (this.disabled) return;
+    if (!this.partnerId) this.warn('Partner id is required.');
 
     window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
     window._linkedin_data_partner_ids.push(partnerId);
@@ -78,18 +79,17 @@ class LinkedInTag {
    * an event-specific pixel. The src url they provide holds a query variable
    * 'conversionId=123456'. This 123456 is your conversion id.
    *
-   * @param {string?} conversionId - The conversion ID received from LinkedIn
-   * @param {string?} partnerId - Override the partnerId for this specific tracking operation
-   * @param {string?} subDomain - Override the subDomain for this specific tracking operation
+   * @param {string} [conversionId] - The conversion ID received from LinkedIn
+   * @param {string} [partnerId] - Override the partnerId for this specific tracking operation
+   * @param {string} [subDomain] - Override the subDomain for this specific tracking operation
    *
-   * @return void
+   * @return [element]
    */
   track(conversionId, partnerId, subDomain) {
-    if (!this.verifyInit() || this.disabled) return this.warn('Called `track` before calling `init`.');
+    if (this.disabled) return;
+    if (!this.verifyInit()) return this.warn('You must call `init` before calling `track`.');
 
     partnerId = partnerId || this.partnerId || window._linkedin_data_partner_ids[0];
-    if (!partnerId) return this.warn('Partner id is empty.');
-
     subDomain = subDomain || this.subDomain;
 
     let url = `https://${subDomain}.ads.linkedin.com/collect/?pid=${partnerId}&fmt=gif`;
@@ -97,12 +97,15 @@ class LinkedInTag {
       url = `${url}&conversionId=${conversionId}`;
     }
 
-    // It creates an element without actually posting it to the page. The call is already made to the linkedin servers and will be registered
+    // It creates an element without actually adding it to the page DOM.
+    // The call is already made to the LinkedIn servers and will be registered.
     const element = document.createElement('img');
     element.alt = '';
     element.height = 1;
     element.width = 1;
     element.src = url;
+
+    return element;
   }
 }
 
