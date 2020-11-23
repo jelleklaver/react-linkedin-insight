@@ -6,7 +6,7 @@
 [![](https://badgen.net/david/dep/jelleklaver/react-linkedin-insight)](https://npmjs.com/package/react-linkedin-insight)
 [![](https://badgen.net/npm/dt/react-linkedin-insight?icon=npm)](https://npmjs.com/package/react-linkedin-insight)
 
-Easily add LinkedIn Insight Tag to React.
+Easily add LinkedIn Insight Tag to your application.
 It is heavily inspired by [react-facebook-pixel](https://github.com/zsajjad/react-facebook-pixel) from [@zsajjad](https://github.com/zsajjad).
 
 ## Install
