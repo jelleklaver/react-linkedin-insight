@@ -1,13 +1,14 @@
 {
   "name": "react-linkedin-insight",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Easily add LinkedIn Insight Tag to your application",
   "author": "Jelle Klaver",
   "bugs": {
     "url": "https://github.com/jelleklaver/react-linkedin-insight/issues"
   },
   "files": [
-    "/dist"
+    "/dist",
+    "/@types"
   ],
   "homepage": "https://github.com/jelleklaver/react-linkedin-insight#readme",
   "keywords": [
