@@ -1,4 +1,4 @@
-import {LinkedInTag} from '../../src/index.js';
+import {LinkedInTag} from '../..';
 const tag = new LinkedInTag()
 
 describe('Happy path', () => {

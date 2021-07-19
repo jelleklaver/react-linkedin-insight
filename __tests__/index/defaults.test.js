@@ -1,4 +1,4 @@
-import LinkedInTag from '../../src/index.js';
+import LinkedInTag from '../..';
 
 beforeAll(() => {
     jest.mock('browser-or-node', () => ({ isBrowser: true }));

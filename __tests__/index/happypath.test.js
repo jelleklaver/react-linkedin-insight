@@ -1,4 +1,4 @@
-import LinkedInTag from '../../src/index.js';
+import LinkedInTag from '../..';
 
 describe('Happy path', () => {
     const partnerId = '0987654321';
