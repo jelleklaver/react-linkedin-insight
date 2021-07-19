@@ -1,6 +1,6 @@
 {
   "name": "react-linkedin-insight",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Easily add LinkedIn Insight Tag to your application",
   "author": "Jelle Klaver",
   "bugs": {
@@ -28,6 +28,7 @@
     "bundle": "npm run lint && export NODE_ENV=production && webpack --config webpack.config.dist.js",
     "lint": "eslint src/",
     "clean": "rm -rf node_modules",
+    "pretest": "yarn bundle",
     "test": "jest"
   },
   "types": "./@types/index.d.ts",
